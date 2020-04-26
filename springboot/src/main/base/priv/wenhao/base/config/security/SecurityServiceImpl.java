@@ -1,6 +1,5 @@
 package priv.wenhao.base.config.security;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,14 +7,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import priv.wenhao.base.pojo.UserPojo;
-import priv.wenhao.base.pojo.dto.SchoolTeacherDto;
-import priv.wenhao.base.pojo.dto.SysRoleDto;
-import priv.wenhao.securitytest.mapper.SchoolTeacherMapper;
-import priv.wenhao.securitytest.mapper.SysRoleMapper;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * ClassName: SecurityServiceImpl
@@ -27,11 +18,6 @@ import java.util.List;
 @Service
 @Transactional
 public class SecurityServiceImpl implements UserDetailsService {
-	@Autowired
-	private SchoolTeacherMapper schoolTeacherMapper;
-
-	@Autowired
-	private SysRoleMapper sysRoleMapper;
 
 	@Override
 	public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
@@ -51,7 +37,7 @@ public class SecurityServiceImpl implements UserDetailsService {
 //		userPojo.setEnable(list.get(0).getEnable());
 //		userPojo.setPassword(list.get(0).getPassword());
 //		userPojo.setRoles(roleName);
-		UserDetails userPojo= User.withUsername("zhangsan").password("$2a$10$e1uqxZLQ/tisdEUcgU5LVewVmQbfqFN2N1xiz5MrHptuceXz/qSEa")
+		UserDetails userPojo = User.withUsername("zhangsan").password("$2a$10$e1uqxZLQ/tisdEUcgU5LVewVmQbfqFN2N1xiz5MrHptuceXz/qSEa")
 				.authorities("p1").build();
 		return userPojo;
 	}
