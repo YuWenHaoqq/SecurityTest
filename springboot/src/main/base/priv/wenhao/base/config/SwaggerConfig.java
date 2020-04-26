@@ -65,9 +65,9 @@ public class SwaggerConfig {
 
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("宿舍管理")
-				.description("毕业设计-余文豪")
-				.version("1.0.3")
+				.title("springsecurity")
+				.description("大道之心永不止步-余文豪")
+				.version("1.0.0")
 				.contact(new Contact("余文豪", "", "1471689575@qq.com"))
 				.termsOfServiceUrl("")
 				.build();

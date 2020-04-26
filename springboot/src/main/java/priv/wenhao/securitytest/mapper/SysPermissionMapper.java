@@ -15,5 +15,5 @@ public interface SysPermissionMapper {
 	 * Author:yu wenhao
 	 * date:2020/4/21
 	 */
-	public List<SysPermissionDto> getPermissionByUrl(String url);
+	public List<String> getPermissionByUrl(String url);
 }

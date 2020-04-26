@@ -254,28 +254,22 @@
             <version>4.0.0</version>
         </dependency>
 
-        <!--        作者：我是你的酱-->
-        <!--        链接：https://juejin.im/post/5c30579a518825255f0f2eb8-->
-        <!--        来源：掘金-->
-        <!--        著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。-->
-
-        <!--        添加的是身份管理的包-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.apache.shiro</groupId>-->
-        <!--            <artifactId>shiro-core</artifactId>-->
-        <!--            <version>1.4.0</version>-->
-        <!--        </dependency>-->
-
         <!--        权限方法-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>5.2.1.RELEASE</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>5.2.1.RELEASE</version>
         </dependency>
-<!--        数据源-->
+
+        <!--        数据源-->
         <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
         <dependency>
             <groupId>com.alibaba</groupId>
