@@ -1,6 +1,5 @@
 package priv.wenhao.base.config.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -37,7 +36,7 @@ public class SecurityServiceImpl implements UserDetailsService {
 //		userPojo.setEnable(list.get(0).getEnable());
 //		userPojo.setPassword(list.get(0).getPassword());
 //		userPojo.setRoles(roleName);
-		UserDetails userPojo = User.withUsername("zhangsan").password("$2a$10$e1uqxZLQ/tisdEUcgU5LVewVmQbfqFN2N1xiz5MrHptuceXz/qSEa")
+		UserDetails userPojo = User.withUsername("admin").password("$2a$10$mBlHrBIWRbZn6u3tzmsuV.fqYrFAmqobTBYO0X5tmUPjO1CbdYd5.")
 				.authorities("p1").build();
 		return userPojo;
 	}
