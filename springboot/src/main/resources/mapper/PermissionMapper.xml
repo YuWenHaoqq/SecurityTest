@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.wenhao.securitytest.mapper.PermissionMapper">
+
+    <select id="getPermissionByMenu" resultType="java.lang.String">
+        select DISTINCT(sp.permission_name) from sys_menu as sm
+        left join sys_permission_menu as spm on spm.menu_id=sm.menu_id and spm.is_deleted=0
+        left join sys_permission as sp on sp.permission_id= spm.permission_id and sp.is_deleted=0
+        where sm.path=#{menu} and sm.is_deleted=0
+    </select>
+</mapper>

@@ -1,4 +1,4 @@
-package priv.wenhao.base.config.security;
+package priv.wenhao.base.security;
 
 import com.alibaba.fastjson.JSON;
 import org.springframework.security.access.AccessDeniedException;

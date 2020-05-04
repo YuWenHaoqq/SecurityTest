@@ -14,17 +14,9 @@ import javax.validation.Valid;
 @Api(tags = "登录测试接口")
 @RestController
 public class LoginController {
-	@PostMapping("/success")
+	@GetMapping("/success")
 	public ResultVo loginSuccess(@Valid @ModelAttribute OtherQuery otherQuery){
 		ResultVo resultVo=new ResultVo();
-//		if (bindingResult.hasErrors()){
-//			for (ObjectError error:bindingResult.getAllErrors()){
-//				resultVo.setCode(ExceptionEnum.PARAMERROR.getCode());
-//				resultVo.setMessage(error.getDefaultMessage());
-//				return resultVo;
-//			}
-//		}
-
 		resultVo.setMessage(otherQuery.getKk());
 		return resultVo;
 	}

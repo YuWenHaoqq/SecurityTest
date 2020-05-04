@@ -1,10 +1,16 @@
 package priv.wenhao.base.pojo.dto;
 
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.Entity;
 import java.util.Collection;
+import java.util.List;
 
+@Entity
+@Data
 public class AccountDto implements UserDetails {
 	private Integer accountId;
 	private String userName;
@@ -15,38 +21,39 @@ public class AccountDto implements UserDetails {
 	private String phoneType;
 	private Integer enable;
 	private Integer delete;
+	private List<SimpleGrantedAuthority> permissionName;
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
+		return this.permissionName;
 	}
 
 	@Override
 	public String getPassword() {
-		return null;
+		return this.password;
 	}
 
 	@Override
 	public String getUsername() {
-		return null;
+		return this.userName;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		return false;
+		return this.enable==0?true:false;
 	}
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.wenhao.securitytest.mapper.AccountMapper">
+    <resultMap id="AccountPermissionDto" type="priv.wenhao.securitytest.pojo.AccountPermissionDto">
+        <id column="account_id" property="accountId"></id>
+        <result column="username" property="userName"></result>
+        <result column="password" property="password" ></result>
+        <result column="name" property="name" ></result>
+        <result column="phone" property="phone" ></result>
+        <result column="email" property="email" ></result>
+        <result column="phone_type" property="phoneType" ></result>
+        <result column="is_enable" property="enable" jdbcType="INTEGER"></result>
+        <result column="is_deleted" property="deleted" jdbcType="INTEGER"></result>
+        <result column="permission_name" property="permissionName"></result>
+        <result column="permission_des" property="permissionDes" ></result>
+    </resultMap>
+
+    <select id="getAccountByUsername" resultMap="AccountPermissionDto">
+        select a.account_id,a.username,a.password,a.name,a.phone,a.email,a.phone_type,a.is_enable,
+        a.is_deleted,sp.permission_des,sp.permission_name
+         from account as a
+        left join sys_account_role as sar on sar.account_id =a.account_id and sar.is_deleted=0
+        left join sys_role as sr on sr.role_id=sar.role_id and sr.is_deleted=0
+        left join sys_role_permission as srp on srp.role_id=sr.role_id and srp.is_deleted=0
+        left join sys_permission as sp on sp.permission_id =srp.role_id and sp.is_deleted=0
+        where a.username=#{username} and a.is_deleted=0
+    </select>
+</mapper>
